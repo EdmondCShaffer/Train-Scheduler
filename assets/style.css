@@ -1,0 +1,16 @@
+.jumbotron{
+   opacity: 0.68;
+    
+}
+
+body{
+    background-image: url("https://cdn.pixabay.com/photo/2016/11/23/17/35/indoors-1853976__340.jpg");
+    background-size: cover;
+}
+
+.form{
+    /* background-image: url("https://images4.alphacoders.com/150/150168.jpg");
+    background-size: cover; */
+    opacity: 0.68;
+    
+}
