@@ -11,10 +11,10 @@ firebase.initializeApp(config);
 var dataBase = firebase.database();
 
 
-  var name = "";
-  var destination = "";
-  var firstTrain = 0;
-  var frequency = 0;
+var name = "";
+var destination = "";
+var firstTrain = 0;
+var frequency = 0;
 
 $("#train").on("click", function (event) {
   event.preventDefault();
@@ -24,16 +24,16 @@ $("#train").on("click", function (event) {
   firstTrain = $("#firstTrain-input").val().trim();
   frequency = $("#frequency-input").val().trim();
 
-  dataBase.ref().push({
-
-        name: name,
-        destination: destination,
-        firstTrain: firstTrain,
-        frequency: frequency,
-        datedAdded: firebase.database.ServerValue.TIMESTAMP
-   });
-  }); 
-  console.log("gothere");
+  var newTrain = {
+    name: name,
+    destination: destination,
+    firstTrain: firstTrain,
+    frequency: frequency,
+    datedAdded: firebase.database.ServerValue.TIMESTAMP
+  }
+  dataBase.ref().push(newTrain);
+});
+console.log("gothere");
 
 
 dataBase.ref().on("child_added", function (childSnapshot) {
@@ -54,7 +54,7 @@ dataBase.ref().on("child_added", function (childSnapshot) {
 
 
 
-  $("#full-train-list").append(newRow);
+  $("#full-train-list").append(row);
 
 }, function (errorObject) {
   console.log("Errors handled:" + errorObject.code);
